@@ -27,6 +27,20 @@ export class AlphabetService {
       })
   }
 
+  get(uuid) {
+    this.loading = true;
+    return fetch(`/api/accounts/${this.app.accountId}/alphabets/${uuid}`)
+      .then(res => res.json())
+      .then(data => {
+        this.loading = false;
+        return data;
+      })
+      .catch(error => {
+        this.loading = False;
+        return error;
+      })
+  }
+
   create(data) {
     this.writing = true;
 

@@ -12,11 +12,31 @@ export class ComputedService {
   constructor(private app: AppService) { }
 
   getAll() {
+    this.loading = true;
     fetch(`/api/accounts/${this.app.accountId}/services`)
       .then(res => res.json())
       .then(data => {
+        this.loading = false;
         this.collection = data;
         return data;
+      })
+      .catch(error => {
+        this.loading = False;
+        return error;
+      })
+  }
+
+  get(uuid) {
+    this.loading = true;
+    return fetch(`/api/accounts/${this.app.accountId}/services/${uuid}`)
+      .then(res => res.json())
+      .then(data => {
+        this.loading = false;
+        return data;
+      })
+      .catch(error => {
+        this.loading = False;
+        return error;
       })
   }
 

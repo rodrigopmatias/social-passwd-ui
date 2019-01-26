@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AppService } from '../app.service';
 import { AlphabetService } from '../alphabet.service';
 import { ComputedService } from '../computed.service';
+import { WaitingService } from '../waiting.service';
 
 @Component({
   selector: 'app-service-form',
@@ -24,8 +25,14 @@ export class ServiceFormComponent implements OnInit {
     private app: AppService,
     private router: Router,
     private route: ActivatedRoute,
+    private waiting: WaitingService,
     public alphabets: AlphabetService,
-    public services: ComputedService) { }
+    public services: ComputedService)
+  {
+    this.waiting.stack.push(
+      () => this.alphabets.loading || this.services.loading || this.services.writing
+    );
+  }
 
   ngOnInit() {
     const uuid = this.route.snapshot.paramMap.get('uuid');
@@ -34,8 +41,7 @@ export class ServiceFormComponent implements OnInit {
     this.alphabets.getAll();
 
     if (uuid) {
-      fetch(`/api/accounts/${this.app.accountId}/services/${uuid}`)
-        .then(res => res.json())
+      this.services.get(uuid)
         .then(data => {
           const values = {};
 

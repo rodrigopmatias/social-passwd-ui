@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
 import { AlphabetService } from '../alphabet.service';
+import { WaitingService } from '../waiting.service';
 
 @Component({
   selector: 'app-alphabet',
@@ -9,7 +10,15 @@ import { AlphabetService } from '../alphabet.service';
 })
 export class AlphabetComponent implements OnInit {
 
-  constructor(private app: AppService, public alphabets: AlphabetService) { }
+  constructor(
+    private app: AppService,
+    private waiting: WaitingService,
+    public alphabets: AlphabetService)
+  {
+    this.waiting.stack.push(
+      () => (this.alphabets.loading || this.alphabets.writing)
+    );
+  }
 
   ngOnInit() {
     this.app.title = 'Alfabeto para Chave';

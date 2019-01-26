@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { AppService } from '../app.service';
 import { AlphabetService } from '../alphabet.service';
+import { WaitingService } from '../waiting.service';
 
 @Component({
   selector: 'app-alphabet-form',
@@ -21,16 +22,21 @@ export class AlphabetFormComponent implements OnInit {
   constructor(
     private app: AppService,
     private alphabets: AlphabetService,
+    private waiting: WaitingService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute)
+  {
+    this.waiting.stack.push(
+      () => (this.alphabets.loading || this.alphabets.writing)
+    );
+  }
 
   ngOnInit() {
     this.app.title = 'Editando um alfaneto';
 
     const uuid = this.route.snapshot.paramMap.get('uuid');
     if (uuid) {
-      fetch(`/api/accounts/${this.app.accountId}/alphabets/${uuid}`)
-        .then(res => res.json())
+      this.alphabets.get(uuid)
         .then(data => {
           const values = {};
 

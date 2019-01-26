@@ -17,6 +17,7 @@ import { AlphabetFormComponent } from './alphabet-form/alphabet-form.component';
 import { PasswordGeneratorComponent } from './password-generator/password-generator.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { WaitingComponent } from './waiting/waiting.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { environment } from '../environments/environment';
     ServiceFormComponent,
     AlphabetComponent,
     AlphabetFormComponent,
-    PasswordGeneratorComponent
+    PasswordGeneratorComponent,
+    WaitingComponent
   ],
   imports: [
     BrowserModule,

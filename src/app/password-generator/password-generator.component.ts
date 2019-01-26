@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { AppService } from '../app.service';
 import { ComputedService } from '../computed.service';
+import { WaitingService } from '../waiting.service';
 
 @Component({
   selector: 'app-password-generator',
@@ -20,7 +21,13 @@ export class PasswordGeneratorComponent implements OnInit {
     private app: AppService,
     private router: Router,
     private route: ActivatedRoute,
-    public services: ComputedService) { }
+    private waiting: WaitingService,
+    public services: ComputedService)
+  {
+    this.waiting.stack.push(
+      () => this.services.loading
+    );
+  }
 
     serviceId = 0;
     sercice = {};
@@ -31,8 +38,7 @@ export class PasswordGeneratorComponent implements OnInit {
     this.serviceId = this.route.snapshot.paramMap.get('uuid');
     this.service = {};
 
-    fetch(`/api/accounts/${this.app.accountId}/services/${this.serviceId}`)
-      .then(res => res.json())
+    this.services.get(this.serviceId)
       .then(data => {
         this.service = data;
       })
