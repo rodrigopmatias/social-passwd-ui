@@ -1,0 +1,21 @@
+<div>
+  <div *ngFor="let item of alphabets.collection">
+    <div class="list-group">
+      <div>{{ item.name || 'NULL' }}</div>
+      <div>
+        <a [routerLink]="['/alphabet/form/' + item.uuid]">
+          <i class="material-icons">create</i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="alphabets.collection.length === 0">
+    Nenhum serviço registrado, adicione um novo serviço.
+  </div>
+</div>
+
+<div class="btn-control">
+  <a class="bg-primary" routerLink="/alphabet/form">
+    <i class="material-icons">create</i>
+  </a>
+</div>

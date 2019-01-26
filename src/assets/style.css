@@ -1,0 +1,141 @@
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 16pt;
+
+  font-family: 'Roboto', 'Droid'
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 2px solid #ccc;
+  box-shadow: 0 0 35px 5px #ccc;
+}
+
+.header > div {
+  padding: 1em;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.content > div {
+  margin: 1em;
+  margin-top: 4em;
+}
+
+.btn-control {
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+}
+
+.btn-control > a {
+  margin-right: 10px;
+  border: 1px solid #000;
+  border-radius: 100px;
+  padding: 5px 21px 12px 21px;
+  font-size: 2.0em;
+  color: black;
+  box-shadow: 0 0 35px 5px #a9a9a9;
+}
+
+.bg-primary {
+  border-color: #519660 !important;
+  background-color: #6abf7d;
+  color: #355d3e !important;
+}
+
+.bg-warn {
+  border-color: #bb6f0d !important;
+  background-color: #ff8f00;
+  color: #ffe5c4 !important;
+}
+
+.bg-info {
+  border-color: #6178a0 !important;
+  background-color: #6a87bf;
+  color: #c7daff !important;
+}
+
+.bg-danger {
+  border-color: #d45b5b !important;
+  background-color: #e87d7d;
+  color: #fff !important;
+}
+
+
+/* form styles */
+
+.form-group {
+  margin-bottom: 0.5em;
+}
+
+.form-group > label {
+  display: block;
+  font-size: 0.8em;
+  color: #999;
+  margin-bottom: 0.5em;
+}
+
+.form-group > .form-control {
+  display: block;
+  border: 1px solid #999;
+  border-radius: 5px;
+  font-size: 1em;
+  width: 100%;
+  padding: 0.8em 0;
+}
+
+.form-group > .form-control > input,
+.form-group > .form-control > select,
+.form-group > .form-control > div {
+  border: 0;
+  font-size: 1em;
+  display: table;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.form-group > .form-control > select {
+  background: transparent;
+}
+
+
+.list-group {
+  display: flex;
+  margin-bottom: 25px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 12pt;
+  box-shadow: 0px 0px 15px 5px #bbb;
+}
+
+.list-group div:first-child {
+  text-align: left;
+  flex: 1;
+}
+
+.list-group div {
+  text-align: center;
+  flex: none;
+  width: 60px;
+}

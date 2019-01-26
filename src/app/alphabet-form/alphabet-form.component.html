@@ -1,0 +1,28 @@
+<form [formGroup]="alphabetForm">
+  <div class="form-group">
+    <label for="">Nome</label>
+    <div class="form-control">
+      <input type="text" formControlName="name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">Dicionário</label>
+    <div class="form-control">
+      <input type="text" formControlName="alphabet">
+    </div>
+  </div>
+</form>
+
+<div class="btn-control">
+  <a class="bg-danger" (click)="destroy(alphabetForm.value.uuid)" *ngIf="alphabetForm.value.uuid">
+    <i class="material-icons" *ngIf="!alphabets.writing">cloud_off</i>
+    <i class="material-icons" *ngIf="alphabets.writing">hourglass_empty</i>
+  </a>
+  <a class="bg-primary" href="#" (click)="save()">
+    <i class="material-icons" *ngIf="!alphabets.writing">cloud_upload</i>
+    <i class="material-icons" *ngIf="alphabets.writing">hourglass_empty</i>
+  </a>
+  <a class="bg-warn" routerLink="/alphabet">
+    <i class="material-icons">clear</i>
+  </a>
+</div>

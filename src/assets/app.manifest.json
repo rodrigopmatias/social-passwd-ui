@@ -1,0 +1,10 @@
+{
+  "name": "Carteira de Serviços",
+  "short_name": "Meus Serviços",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff",
+  "description": "Gestor de Carteira de Serviços.",
+  "theme_color": "#fff"
+}

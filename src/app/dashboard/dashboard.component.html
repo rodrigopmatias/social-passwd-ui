@@ -1,0 +1,31 @@
+<div class="">
+  <div id="serviceList">
+    <div *ngFor="let item of computedService.collection">
+      <div class="list-group">
+        <div>{{ item.name || 'NULL' }}</div>
+        <div>
+          <a [routerLink]="['service', item.uuid, 'keygen']">
+            <i class="material-icons">fingerprint</i>
+          </a>
+        </div>
+        <div>
+          <a [routerLink]="['/service/form/' + item.uuid]">
+            <i class="material-icons">create</i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="computedService.collection.lenght === 0">
+      Nenhum serviço registrado, adicione um novo serviço.
+    </div>
+  </div>
+
+  <div class="btn-control">
+    <a class="bg-primary" routerLink="/alphabet">
+      <i class="material-icons">translate</i>
+    </a>
+    <a class="bg-info" routerLink="/service/form">
+      <i class="material-icons">create</i>
+    </a>
+  </div>
+</div>
