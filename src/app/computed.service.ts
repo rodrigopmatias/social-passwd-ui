@@ -21,7 +21,7 @@ export class ComputedService {
         return data;
       })
       .catch(error => {
-        this.loading = False;
+        this.loading = false;
         return error;
       })
   }
@@ -35,7 +35,7 @@ export class ComputedService {
         return data;
       })
       .catch(error => {
-        this.loading = False;
+        this.loading = false;
         return error;
       })
   }

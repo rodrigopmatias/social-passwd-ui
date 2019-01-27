@@ -36,7 +36,7 @@ export class AlphabetService {
         return data;
       })
       .catch(error => {
-        this.loading = False;
+        this.loading = false;
         return error;
       })
   }

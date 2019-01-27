@@ -21,7 +21,7 @@ export class AlphabetFormComponent implements OnInit {
 
   constructor(
     private app: AppService,
-    private alphabets: AlphabetService,
+    public alphabets: AlphabetService,
     private waiting: WaitingService,
     private router: Router,
     private route: ActivatedRoute)

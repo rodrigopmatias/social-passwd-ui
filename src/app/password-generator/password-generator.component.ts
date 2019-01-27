@@ -17,6 +17,10 @@ export class PasswordGeneratorComponent implements OnInit {
     masterKey: new FormControl('')
   });
 
+  serviceId = '';
+  generatedKey = '';
+  service = {};
+
   constructor(
     private app: AppService,
     private router: Router,
@@ -28,9 +32,6 @@ export class PasswordGeneratorComponent implements OnInit {
       () => this.services.loading
     );
   }
-
-    serviceId = 0;
-    sercice = {};
 
   ngOnInit() {
     this.app.title = 'Gerador de Chaves';
